@@ -3,24 +3,10 @@ import React, { useEffect, useState } from "react";
 import { StyleSheet, FlatList, Text } from "react-native";
 
 import Produtor from "./Produtor";
-import { carregaProdutores } from "../../../servicos/carregaDados";
+import useProdutores from "../../../hooks/useProdutores";
 
 export default function Produtores({ topo: Topo }) {
-    /*
-        Necessário utilizar no inicio da aplicação sendo especifico
-        para cada valor que será alterado, atualizado
-    */
-    const [titulo, setTitulo] = useState('')
-    const [lista, setLista] = useState([])
-
-    useEffect(() => {
-        const retorno = carregaProdutores()
-        setTitulo(retorno.titulo)
-        setLista(retorno.lista)
-
-    },
-        []
-    )
+    const [titulo, lista] = useProdutores()
 
     const TopoLista = () => {
         return <>
@@ -29,10 +15,9 @@ export default function Produtores({ topo: Topo }) {
         </>
     }
 
-
     return <FlatList
         data={lista}
-        renderItem={({ item }) => <Produtor {...item}/>}
+        renderItem={({ item }) => <Produtor {...item} />}
         keyExtractor={({ nome }) => nome}
         ListHeaderComponent={TopoLista}
     />
