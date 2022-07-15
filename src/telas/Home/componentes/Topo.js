@@ -5,7 +5,7 @@ import { carregaTopo } from "../../../servicos/carregaDados";
 import logo from '../../../assets/logo.png'
 
 class Topo extends React.Component {
-    
+
     // Definição e criação de objetos via state utilizado via Component
     state = {
         topo: {
@@ -53,7 +53,7 @@ const estilos = StyleSheet.create({
         fontSize: 16,
         lineHeight: 26,
         color: '#A3A3A3',
-        
+
     }
 })
 

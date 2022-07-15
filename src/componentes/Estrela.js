@@ -12,7 +12,7 @@ export default function Estrela({
     grande = false
 }) {
 
-   const estilos = estilosFuncao(grande)
+    const estilos = estilosFuncao(grande)
 
     const getImage = () => {
         if (preenchida) {
